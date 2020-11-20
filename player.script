@@ -1,0 +1,49 @@
+local reset
+
+function init(self)
+	msg.post('.', 'acquire_input_focus')
+
+	self.vel = 0
+	self.shooting = false
+	self.timer = 10
+end	
+
+function update(self, dt)
+	local pos = go.get_position()
+	pos.x = pos.x + self.vel * dt
+	go.set_position(pos)
+
+	if self.shooting then
+		if self.timer == 10 then
+			factory.create('#laserfactory')
+		end
+		self.timer = self.timer - 1 * dt
+		if self.timer <= 0 then
+			self.timer = 10
+		end
+	elseif self.timer > 0 then
+		reset = timer.delay(10 - self.timer, false, function()
+			self.timer = 0
+			timer.cancel(reset)
+		end)
+	end
+
+	if self.vel == 0 then
+		msg.post('#spaceship', 'play_animation', {id = hash('tile000')})
+	end
+
+	self.vel = 0
+	self.shooting = false
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash('left') then
+		self.vel = -15
+		msg.post('#spaceship', 'play_animation', {id = hash('tile055')})
+	elseif action_id == hash('right') then
+		self.vel = 15
+		msg.post('#spaceship', 'play_animation', {id = hash('tile004')})
+	elseif action_id == hash('shoot') then
+		self.shooting = true
+	end
+end
