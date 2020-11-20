@@ -4,6 +4,7 @@ function init(self)
 	msg.post('.', 'acquire_input_focus')
 
 	self.vel = 0
+	
 	self.shooting = false
 	self.timer = 10
 end	
@@ -29,7 +30,7 @@ function update(self, dt)
 	end
 
 	if self.vel == 0 then
-		msg.post('#spaceship', 'play_animation', {id = hash('tile000')})
+		--msg.post('#spaceship', 'play_animation', {id = hash('idle')})
 	end
 
 	self.vel = 0
@@ -39,10 +40,10 @@ end
 function on_input(self, action_id, action)
 	if action_id == hash('left') then
 		self.vel = -15
-		msg.post('#spaceship', 'play_animation', {id = hash('tile055')})
+		--msg.post('#spaceship', 'play_animation', {id = hash('left')})
 	elseif action_id == hash('right') then
 		self.vel = 15
-		msg.post('#spaceship', 'play_animation', {id = hash('tile004')})
+		--msg.post('#spaceship', 'play_animation', {id = hash('right')})
 	elseif action_id == hash('shoot') then
 		self.shooting = true
 	end
