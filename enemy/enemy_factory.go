@@ -1,6 +1,6 @@
 components {
-  id: "laser"
-  component: "/main/laser.script"
+  id: "enemy_factory_script"
+  component: "/enemy/enemy_factory.script"
   position {
     x: 0.0
     y: 0.0
@@ -14,12 +14,10 @@ components {
   }
 }
 embedded_components {
-  id: "sprite"
-  type: "sprite"
-  data: "tile_set: \"/main/laser.atlas\"\n"
-  "default_animation: \"laserBlue01\"\n"
-  "material: \"/builtins/materials/sprite.material\"\n"
-  "blend_mode: BLEND_MODE_ALPHA\n"
+  id: "enemy_factory"
+  type: "factory"
+  data: "prototype: \"/enemy/enemy.go\"\n"
+  "load_dynamically: false\n"
   ""
   position {
     x: 0.0

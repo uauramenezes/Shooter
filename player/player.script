@@ -48,3 +48,9 @@ function on_input(self, action_id, action)
 		self.shooting = true
 	end
 end
+
+function on_message(self, message_id, message)
+	if message_id == hash('trigger_response') then
+		go.delete()
+	end
+end

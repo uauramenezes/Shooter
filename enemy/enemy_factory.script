@@ -1,0 +1,19 @@
+local min_x = 180
+local max_x = 300
+
+function init(self)
+	self.timer = 50
+	-- make the game deterministic
+	math.randomseed(0)
+end
+
+function update(self, dt)
+	self.timer = self.timer - dt
+	if self.timer <= 0 then
+		self.timer = 50
+		local p = go.get_position()
+		p.x = vmath.lerp(math.random(), min_x, max_x)
+		local enemy = "#enemy_factory"
+		factory.create(enemy, p)
+	end
+end
