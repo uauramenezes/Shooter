@@ -1,5 +1,5 @@
 components {
-  id: "enemy"
+  id: "enemies"
   component: "/enemy/enemy.script"
   position {
     x: 0.0
@@ -13,8 +13,23 @@ components {
     w: 1.0
   }
 }
+components {
+  id: "explosion1"
+  component: "/explosion/explosion.script"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+}
 embedded_components {
-  id: "sprite"
+  id: "enemy"
   type: "sprite"
   data: "tile_set: \"/enemy/enemy.atlas\"\n"
   "default_animation: \"spr_enemy_03\"\n"
@@ -66,6 +81,26 @@ embedded_components {
   "linear_damping: 0.0\n"
   "angular_damping: 0.0\n"
   "locked_rotation: false\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+}
+embedded_components {
+  id: "explosion"
+  type: "sprite"
+  data: "tile_set: \"/explosion/explosion.atlas\"\n"
+  "default_animation: \"red\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "blend_mode: BLEND_MODE_ALPHA\n"
   ""
   position {
     x: 0.0

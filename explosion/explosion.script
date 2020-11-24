@@ -1,0 +1,12 @@
+function on_message(self, message_id, message)
+	local url = msg.url('.')
+	if message_id == hash('explode') then
+		msg.post(url, 'disable')
+		msg.post('#collisionobject', 'disable')
+		msg.post('#explosion', 'enable')
+		msg.post('#explosion', 'play_animation', {id = hash(message.animation)})
+	end
+	if message_id == hash('animation_done') then
+		msg.post('.', 'done')
+	end
+end

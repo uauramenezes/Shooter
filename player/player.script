@@ -2,6 +2,7 @@ local reset
 
 function init(self)
 	msg.post('.', 'acquire_input_focus')
+	msg.post('#explosion', 'disable')
 
 	self.vel = 0
 	
@@ -49,8 +50,17 @@ function on_input(self, action_id, action)
 	end
 end
 
+function recreate()
+	msg.post('#spaceship', 'enable')
+	msg.post('#collisionobject', 'enable')
+end
+
 function on_message(self, message_id, message)
 	if message_id == hash('trigger_response') then
-		go.delete()
+		msg.post('.', 'explode', {animation = 'blue'})
+	end
+	if message_id == hash('done') then
+		msg.post('#explosion', 'disable')
+		timer.delay(10, false, recreate)
 	end
 end
