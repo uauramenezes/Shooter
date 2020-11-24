@@ -31,7 +31,7 @@ function update(self, dt)
 	end
 
 	if self.vel == 0 then
-		--msg.post('#spaceship', 'play_animation', {id = hash('idle')})
+		msg.post('#spaceship', 'play_animation', {id = hash('idle')})
 	end
 
 	self.vel = 0
@@ -41,10 +41,10 @@ end
 function on_input(self, action_id, action)
 	if action_id == hash('left') then
 		self.vel = -15
-		--msg.post('#spaceship', 'play_animation', {id = hash('left')})
+		msg.post('#spaceship', 'play_animation', {id = hash('left_temp')})
 	elseif action_id == hash('right') then
 		self.vel = 15
-		--msg.post('#spaceship', 'play_animation', {id = hash('right')})
+		msg.post('#spaceship', 'play_animation', {id = hash('right_temp')})
 	elseif action_id == hash('shoot') then
 		self.shooting = true
 	end
