@@ -1,10 +1,10 @@
-local min_x = 180
-local max_x = 300
+local min_x = 90
+local max_x = 390
 
 function init(self)
 	self.timer = 50
 	-- make the game deterministic
-	math.randomseed(0)
+	math.randomseed(os.time())
 end
 
 function update(self, dt)

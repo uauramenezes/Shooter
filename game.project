@@ -8,10 +8,12 @@ shared_state = 1
 width = 480
 height = 640
 fullscreen = 0
+vsync = 1
 
 [android]
 input_method = HiddenInputField
 
 [project]
 title = Shooter
+dependencies = https://github.com/subsoap/defos/archive/v2.4.2.zip
 
