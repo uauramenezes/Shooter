@@ -13,6 +13,11 @@ end
 function update(self, dt)
 	local pos = go.get_position()
 	pos.x = pos.x + self.vel * dt
+	if pos.x >= 440 then
+		pos.x = 440
+	elseif pos.x < 32 then
+		pos.x = 32
+	end
 	go.set_position(pos)
 
 	if self.shooting then
