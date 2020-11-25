@@ -1,18 +1,16 @@
 function init(self)
 	msg.post("@render:", "use_fixed_fit_projection", { near = -1, far = 1 })
+	defos.disable_window_resize()
+	defos.disable_maximize_button()
 end
 
 function update(self, dt)
 	local pos = go.get_position()
-	pos.y = pos.y - 10 * dt
+	pos.y = pos.y - 15 * dt
 
 	if pos.y <= -512 then
 		pos.y = 0
 	end
 	
-	go.set_position(pos)	
-end
-
-function on_message(self, message_id, message, sender)
-	
+	go.set_position(pos)
 end
