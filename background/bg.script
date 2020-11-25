@@ -6,7 +6,7 @@ end
 
 function update(self, dt)
 	local pos = go.get_position()
-	pos.y = pos.y - 15 * dt
+	pos.y = pos.y - 150 * dt
 
 	if pos.y <= -512 then
 		pos.y = 0
