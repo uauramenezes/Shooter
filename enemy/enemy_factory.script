@@ -3,6 +3,7 @@ local max_x = 390
 
 function init(self)
 	self.timer = 3
+	self.status = 'create'
 	-- make the game deterministic
 	math.randomseed(os.time())
 end
@@ -13,7 +14,14 @@ function update(self, dt)
 		self.timer = 3
 		local p = go.get_position()
 		p.x = vmath.lerp(math.random(), min_x, max_x)
-		local enemy = "#enemy_factory"
-		factory.create(enemy, p)
+		if self.status == 'create' then
+			factory.create("#enemy_factory", p)
+		end
+	end
+end
+
+function on_message(self, message_id, message)
+	if message_id == hash('stop_factory') then
+		self.status = 'stop'
 	end
 end

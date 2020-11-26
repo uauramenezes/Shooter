@@ -6,6 +6,8 @@ function init(self)
 	self.life = 3
 	self.life_node = gui.get_node('life')
 
+	self.game_over_node = gui.get_node('game_over')
+	gui.set_enabled(self.game_over_node, false)
 end
 
 function on_message(self, message_id, message, sender)
@@ -16,5 +18,7 @@ function on_message(self, message_id, message, sender)
 	elseif message_id == hash('change_life') then
 		local life = 'Life: ' .. tostring(message.life)
 		gui.set_text(self.life_node, life)
+	elseif message_id == hash('enable_game_over') then
+		gui.set_enabled(self.game_over_node, true)
 	end
 end

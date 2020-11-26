@@ -43,6 +43,11 @@ function update(self, dt)
 	self.vel = 0
 	self.shooting = false
 
+	if self.life == 0 then
+		msg.post('score_gui', 'enable_game_over')
+		msg.post('background', 'stop')
+		go.delete()
+	end
 end
 
 function on_input(self, action_id, action)
@@ -67,6 +72,9 @@ function on_message(self, message_id, message)
 	if message_id == hash('trigger_response') then
 		msg.post('.', 'explode', {animation = 'blue'})
 		msg.post('.', 'release_input_focus')
+		if self.life == 1 then
+			msg.post('enemy_factory', 'stop_factory')
+		end
 	elseif message_id == hash('done') then
 		msg.post('#explosion', 'disable')
 
