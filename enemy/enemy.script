@@ -1,3 +1,5 @@
+local score = 100
+
 function init(self)
 	self.speed = 250
 	msg.post('#explosion', 'disable')
@@ -17,6 +19,7 @@ end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash('collision_response') then
+		msg.post('score_gui#score', 'add_score', {amount = score})
 		msg.post('.', 'explode', {animation = 'red'})
 	end
 	if message_id == hash('done') then
