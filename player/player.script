@@ -52,10 +52,10 @@ end
 
 function on_input(self, action_id, action)
 	if action_id == hash('left') then
-		self.vel = -200
+		self.vel = -250
 		msg.post('#spaceship', 'play_animation', {id = hash('left_temp')})
 	elseif action_id == hash('right') then
-		self.vel = 200
+		self.vel = 250
 		msg.post('#spaceship', 'play_animation', {id = hash('right_temp')})
 	elseif action_id == hash('shoot') then
 		self.shooting = true

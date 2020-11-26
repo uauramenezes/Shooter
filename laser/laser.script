@@ -1,5 +1,5 @@
 function init(self)
-	self.speed = 300
+	self.speed = 500
 end
 
 function update(self, dt)
