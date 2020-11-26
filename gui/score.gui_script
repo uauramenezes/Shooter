@@ -1,12 +1,20 @@
 function init(self)
 	self.score = 0
 	self.score_node = gui.get_node('score')
+
+
+	self.life = 3
+	self.life_node = gui.get_node('life')
+
 end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash('add_score') then
-		self.score = self.score + message.amount
+		self.score = self.score + message.score
 		local score = 'Score: ' .. tostring(self.score)
 		gui.set_text(self.score_node, score)
+	elseif message_id == hash('change_life') then
+		local life = 'Life: ' .. tostring(message.life)
+		gui.set_text(self.life_node, life)
 	end
 end

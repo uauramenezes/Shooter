@@ -8,6 +8,7 @@ function init(self)
 	
 	self.shooting = false
 	self.timer = 1
+	self.life = 3
 end	
 
 function update(self, dt)
@@ -41,6 +42,7 @@ function update(self, dt)
 
 	self.vel = 0
 	self.shooting = false
+
 end
 
 function on_input(self, action_id, action)
@@ -65,9 +67,12 @@ function on_message(self, message_id, message)
 	if message_id == hash('trigger_response') then
 		msg.post('.', 'explode', {animation = 'blue'})
 		msg.post('.', 'release_input_focus')
-	end
-	if message_id == hash('done') then
+	elseif message_id == hash('done') then
 		msg.post('#explosion', 'disable')
+
+		self.life = self.life - 1
+		msg.post('score_gui#score', 'change_life', {life = self.life})
+		
 		timer.delay(1, false, recreate)
 	end
 end
