@@ -1,0 +1,4 @@
+function init(self)
+	defos.disable_window_resize()
+	defos.disable_maximize_button()
+end
