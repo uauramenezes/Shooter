@@ -4,7 +4,7 @@ instances {
   prototype: "/enemy/enemy_factory.go"
   position {
     x: 240.0
-    y: 800.0
+    y: 700.0
     z: 0.0
   }
   rotation {

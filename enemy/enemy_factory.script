@@ -2,7 +2,7 @@ local min_x = 90
 local max_x = 390
 
 function init(self)
-	self.timer = 3
+	self.timer = 1
 	self.status = 'create'
 	-- make the game deterministic
 	math.randomseed(os.time())
