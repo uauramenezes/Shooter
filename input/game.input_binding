@@ -26,3 +26,31 @@ mouse_trigger {
   input: MOUSE_BUTTON_1
   action: "touch"
 }
+gamepad_trigger {
+  input: GAMEPAD_LPAD_LEFT
+  action: "left"
+}
+gamepad_trigger {
+  input: GAMEPAD_LSTICK_LEFT
+  action: "left"
+}
+gamepad_trigger {
+  input: GAMEPAD_LPAD_RIGHT
+  action: "right"
+}
+gamepad_trigger {
+  input: GAMEPAD_LSTICK_RIGHT
+  action: "right"
+}
+gamepad_trigger {
+  input: GAMEPAD_RPAD_DOWN
+  action: "shoot"
+}
+gamepad_trigger {
+  input: GAMEPAD_RTRIGGER
+  action: "shoot"
+}
+gamepad_trigger {
+  input: GAMEPAD_RPAD_RIGHT
+  action: "exit"
+}
