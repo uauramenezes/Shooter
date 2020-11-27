@@ -1,7 +1,7 @@
 local score = 100
 
 function init(self)
-	self.speed = 250
+	self.speed = 300
 	msg.post('#explosion', 'disable')
 end
 

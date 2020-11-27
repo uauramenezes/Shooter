@@ -1,5 +1,9 @@
 function init(self)
-	self.speed = 150
+	msg.post("@render:", "use_fixed_fit_projection", { near = -1, far = 1 })
+	--defos.disable_maximize_button()
+	defos.disable_window_resize()
+	
+	self.speed = 200
 end
 
 function update(self, dt)
