@@ -6,8 +6,6 @@ function init(self)
 	
 	defos.set_window_title("Shooter")
 	defos.disable_window_resize()
-
-	msg.post(".", "acquire_input_focus")
 	
 	self.speed = 200
 end
