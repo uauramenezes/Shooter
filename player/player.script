@@ -83,8 +83,4 @@ function on_message(self, message_id, message)
 		msg.post('score_gui#score', 'change_life', {life = self.life})
 		timer.delay(1, false, recreate)
 	end
-
-	if message_id == hash('exit') then
-		msg.post('@system', 'exit', {code = 0})
-	end
 end
