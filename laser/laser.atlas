@@ -14,14 +14,6 @@ images {
   image: "/assets/lasers/laserBlue02.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
-images {
-  image: "/assets/lasers/laserGreen01.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-}
-images {
-  image: "/assets/lasers/laserGreen02.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-}
 margin: 0
 extrude_borders: 2
 inner_padding: 0
