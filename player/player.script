@@ -7,7 +7,7 @@ function init(self)
 	self.vel = 0
 	
 	self.shooting = false
-	self.timer = 1
+	self.timer = 0.1
 	self.life = 3
 end	
 
@@ -22,19 +22,20 @@ function update(self, dt)
 	go.set_position(pos)
 
 	if self.shooting then
-		if self.timer == 1 then
+		if self.timer == 0.1 then
 			factory.create('#laserfactory')
 		end
-		self.timer = self.timer - 1 * dt
+		self.timer = self.timer - 0.5 * dt
 		if self.timer <= 0 then
-			self.timer = 1
+			self.timer = 0.1
 		end
 	elseif self.timer > 0 then
-		reset = timer.delay(1 - self.timer, false, function()
+		reset = timer.delay(0.5 - self.timer, false, function()
 			self.timer = 0
 			timer.cancel(reset)
 		end)
 	end
+
 
 	if self.vel == 0 then
 		msg.post('#spaceship', 'play_animation', {id = hash('idle')})
